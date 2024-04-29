@@ -35,7 +35,7 @@
 
 <?php
 // Include the PHP file with database connection
-include 'connection.php';
+include 'connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $state = $_POST['state'];
