@@ -1,10 +1,17 @@
 import sqlite3
+import mysql.connector
+
 
 # Function to connect to the SQLite database
-def connect_to_database(db_file):
-    conn = None
+def connect_to_database(): # if you want to keep the input file for database then use connector.py and remmove lines 8-12.
+    # change this to your connection
+    conn = mysql.connector.connect(
+        host='localhost', 
+        username='root', 
+        password='12345678',
+        database='university')
     try:
-        conn = sqlite3.connect(db_file)
+        conn = sqlite3.connect() #this line may cause issues, change this if needed
         print("Connected to SQLite database")
         return conn
     except sqlite3.Error as e:
@@ -12,18 +19,18 @@ def connect_to_database(db_file):
     return conn
 
 # Function to query universities based on user preferences
-def query_universities(conn, location, income, gpa, major, state):
+def query_universities(conn, major, state):
     try:
         cursor = conn.cursor()
         cursor.execute("""
             SELECT uni_name
             FROM university
-            WHERE state = ? AND tuition < ? AND uni_id IN (
+            WHERE state = ? AND uni_id IN (
                 SELECT uni_id
                 FROM Major
                 WHERE major = ?
             )
-        """, (state, income, major))
+        """, (state, major))
         rows = cursor.fetchall()
         if len(rows) == 0:
             print("No universities found matching your criteria.")
@@ -31,21 +38,18 @@ def query_universities(conn, location, income, gpa, major, state):
             print("Universities matching your criteria:")
             for row in rows:
                 print(row[0])
+                
     except sqlite3.Error as e:
         print(e)
 
 # Main function to ask user questions and call the query function
 def main():
-    database = "university.db"
-    conn = connect_to_database(database)
+    conn = connect_to_database()
     if conn is not None:
-        location = input("Where do you live? ")
-        income = float(input("What is your household income? "))
-        gpa = float(input("What is your GPA? "))
         major = input("What major are you interested in? ")
-        state = input("Are you in-state or out-of-state? ")
+        state = input("What state are you interested in living?")
 
-        query_universities(conn, location, income, gpa, major, state)
+        query_universities(conn, major, state)
         conn.close()
     else:
         print("Error: Could not connect to database.")
