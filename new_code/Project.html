@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBCU Major Quiz</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>HBCU Major Quiz</h1>
+  <form id="quiz-form" action="connect.php" method="post">
+    <div class="question">
+      <label for="q1">What part of the DMV are you from</label>
+      <select id="q1" name="q1">
+        <option value="">Select...</option>
+         <option value="DC">DC</option>
+        <option value="Maryland">Maryland</option>
+        <option value="Virginia">Virginia </option>
+      </select>
+    </div>
+   
+    <div class="question">
+      <label for="q1">What was your Highschool GPA</label>
+      <select id="q1" name="q2">
+        <option value="">Select...</option>
+         <option value="0-1.9">0-1.9</option>
+        <option value="2.0-2.9">2.0-2.9</option>
+        <option value="3.0-3.9">3.0-3.9</option>
+        <option value="3.9-4.0">3.9-4.0</option>
+      </select>
+    </div>
+   
+    <div class="question">
+      <label for="q2">Which of the following HBCUs have you heard of?</label>
+      <select id="q2" name="q3">
+        <option value="">Select...</option>
+        <option value="BSU">Bowie State University</option>
+        <option value="CSU">Coppin State University</option>
+        <option value="MSU">Morgan State University</option>
+        <option value="HU">Howard University</option>
+        <option value="UDC">University of District of Columbia</option>
+        <option value="HU">Hampton University</option>
+        <option value="VSU">Virginia State University</option>
+        <option value="NSU">Norfolk State University</option>
+        <option value="VUU">Virginia Union University</option>
+        <!-- Add options for Cybersecurity -->
+      </select>
+    </div>
+    <div class="question">
+      <label for="q3">WHich of the following HBCUs are u interested in?</label>
+      <select id="q3" name="q4">
+        <option value="">Select...</option>
+        <option value="BSU">Bowie State University</option>
+        <option value="CSU">Coppin State University</option>
+        <option value="MSU">Morgan State University</option>
+        <option value="HU">Howard University</option>
+        <option value="UDC">University of District of Columbia</option>
+        <option value="HU">Hampton University</option>
+        <option value="VSU">Virginia State University</option>
+        <option value="NSU">Norfolk State University</option>
+        <option value="VUU">Virginia Union University</option>
+        <!-- Add options for Nursing -->
+      </select>
+    </div>
+    <div class="question">
+      <label for="q4">What Major are u interested in?</label>
+      <select id="q4" name="q5">
+        <option value="">Select...</option>
+        <option value="2">Computer Science, Cybersecurity Focus</option>
+<option value="3">Data Science</option>
+<option value="4">Cyber Operations Engineering</option>
+<option value="5">Software Engineering</option>
+<option value="6">Cloud Computing</option>
+<option value="7">Bioinformatics</option>
+<option value="8">Advanced Computing</option>
+<option value="9">Computer Science, Business Focus</option>
+<option value="10">Applied Computer Science</option>
+<option value="11">Cybersecurity Engineering</option>
+<option value="12">Computer Engineering</option>
+<option value="13">Computer Science and Engineering</option>
+<option value="14">Information Technology</option>
+<option value="15">Cybersecurity</option>
+<option value="16">Computer Science and Engineering with a Specialization in Computer Science</option>
+<option value="17">Computer Information Systems</option>
+<option value="18">Information Logistics Technology</option>
+<option value="19">Computer Engineering Technology</option>
+<option value="20">Computer Science - Computer Engineering Track</option>
+<option value="21">Computer Science - Cybersecurity Track</option>
+<option value="22">Computer Science - Sofware Engineering Track</option>
+<option value="23">Computer Science - Standard Track</option>
+<option value="24">Computer Science - IA Track</option>
+<option value="25">Computer Information Systems and Computer Science</option>
+<option value="26">Cybersecurity - Minor in Account</option>
+<option value="27">Cybersecurity - Digital Forensics</option>
+<option value="28">Cybersecurity - Finance and Banking</option>
+<option value="29">Cybersecurity - Mathematics</option>
+<option value="30">Cybersecurity - Minor in Account</option>
+<option value="31">Mathematics with Computer Science</option>
+<option value="32">Natural Science with Computer Science</option>
+
+
+        
+        <!-- Add options for Business Administration -->
+      </select>
+    </div>
+
+    <div class="question">
+      <label for="interests">What are some of your interests?</label>
+      <input type="text" id="interests" name="interests" placeholder="Enter your interests...">
+    </div>
+    
+
+    <!-- Add more questions based on student interests -->
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
