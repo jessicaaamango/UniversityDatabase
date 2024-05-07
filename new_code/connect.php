@@ -42,5 +42,18 @@ foreach ($results as $row) {
 }
 echo '</ul>';
 
+
+// possible major search?
+// if (isset($_POST["search"])) {
+//   // SEARCH FOR MAJORS
+//   require "search.php";
+
+//   // (B2) DISPLAY RESULTS
+//   if (count($results) > 0) { foreach ($results as $r) {
+//     printf("<div>%s - %s</div>", $r["name"], $r["email"]);
+//   }} else { echo "No results found"; }
+// }
+
+
 // Close database connection
 $conn = null;
