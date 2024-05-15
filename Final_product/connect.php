@@ -15,28 +15,32 @@ try {
 }
 
 $state = $_POST['q1'];
-$collegeInterest = $_POST['q2'];
 $major= $_POST['q3'];
 $tuition = $_POST['tution'];
 
 
 $sql = "SELECT * FROM university u
 INNER JOIN Major m ON u.uni_id = m.uni_id
-WHERE u.state = :state AND m.major_id = :major AND u.tuition <= :tution OR u.uni_name = :college" ;
+WHERE u.state = :state AND m.major_id = :major AND u.tuition <= :tution " ;
 
 
 // Prepare and execute the query
 $stmt = $conn->prepare($sql);
-$stmt->execute(array(':state' => $state, ':major' => $major, ':tution'=> $tuition,
- ':college'=> $collegeInterest ));
+$stmt->execute(array(':state' => $state, ':major' => $major, ':tution'=> $tuition ));
 $results = $stmt->fetchAll();
 // Display search results
 echo '<h2>Search Results</h2>';
 echo '<ul>';
-foreach ($results as $row) {
-    echo '<li>' . $row['uni_name'] . '</li>';
+if (count($results) > 0) {
+    echo '<ul>';
+    foreach ($results as $row) {
+        //display universitiis
+        echo '<li>' . $row['uni_name'] .  ' -' . $row['state'] . ' - Tuition: $' . $row['tuition'] .'</li>';
+    }
+    echo '</ul>';
+} else {
+    echo 'No results found.';
 }
-echo '</ul>';
 
 // Close database connection
 $conn = null;
